@@ -1,0 +1,19 @@
+body{
+  background-color: #e1e1e1;
+}
+
+.icon-input {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 3rem;
+  height: 2.4rem;
+  line-height: 2.4rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+  font-size: 1.3rem;
+}
+.icon-input + input{
+  padding-left: 3rem;
+}

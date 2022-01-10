@@ -1,0 +1,7 @@
+CRITICAL - 2022-01-07 12:44:47 --> Undefined variable $model
+#0 /opt/lampp/htdocs/qr_code/app/Controllers/Users.php(123): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined varia...', '/opt/lampp/htdo...', 123)
+#1 /opt/lampp/htdocs/qr_code/system/CodeIgniter.php(825): App\Controllers\Users->profile()
+#2 /opt/lampp/htdocs/qr_code/system/CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Users))
+#3 /opt/lampp/htdocs/qr_code/system/CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /opt/lampp/htdocs/qr_code/public/index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
