@@ -17,3 +17,7 @@ body{
 .icon-input + input{
   padding-left: 3rem;
 }
+
+.border{
+  border: 1px solid #ced4da !important;
+}

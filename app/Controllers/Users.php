@@ -92,7 +92,7 @@ class Users extends BaseController
           'lastname'  => 'required|min_length[3]|max_length[20]',
         ];
         //solo si se envia via post la password
-        if($this->request->getPost() != '' ){
+        if($this->request->getPost('password') != '' ){
           $rules = [
             'password'        => 'required|min_length[6]|max_length[255]',
             'repeat_password' => 'matches[password]'
@@ -110,7 +110,7 @@ class Users extends BaseController
             'lastname'  => $this->request->getVar('lastname'),
           ];
           //solo si se envia via post la password
-          if($this->request->getPost() != '' ){
+          if($this->request->getPost('password') != '' ){
             $userData['password'] = $this->request->getPost('password');
           }
 
