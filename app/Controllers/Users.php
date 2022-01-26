@@ -11,8 +11,8 @@ class Users extends BaseController
         if($this->request->getMethod() == 'post'){
           //validation rules
           $rules = [
-            'email'     => 'required|min_length[6]|max_length[50]|valid_email',
-            'password'  => 'required|min_length[6]|max_length[255]|validate_user[email,password]'
+            'email' => ['label'=>'Correo electrónico', 'rules' => 'required|min_length[6]|max_length[50]|valid_email'],
+            'password' => ['label'=>'Contraseña', 'rules' => 'required|min_length[6]|max_length[255]|validate_user[email,password]']
           ];
 
           $errors = [
@@ -41,7 +41,7 @@ class Users extends BaseController
         }
 
         echo view('templates/header');
-        echo view('index',$data);
+        echo view('login',$data);
         echo view('templates/footer');
     }
 
