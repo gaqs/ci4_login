@@ -25,4 +25,17 @@
 <!-- Custom script -->
 <script type="text/javascript">
 
+  const toggle_button = document.querySelector('#toggle_button');
+  const password = document.querySelector('#input_password');
+
+  toggle_button.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye / eye slash icon
+    toggle_button.firstChild.classList.toggle('fa-eye-slash');
+    toggle_button.firstChild.classList.toggle('fa-eye');
+});
+
+
 </script>

@@ -1,16 +1,26 @@
 <div id="authentication" class="bg-primary bg-gradient">
-	<div id="authentication_content" class="mt-5">
+	<div id="authentication_content" class="my-5">
 	<main role="main">
 	  <div class="container">
 	      <div class="row justify-content-center">
 	          <div class="col-lg-7">
 	              <div class="card shadow-lg border-0 rounded-lg">
-	                  <div class="card-header">
-											<h3 class="text-center font-weight-light my-4">
-												<span class="fas fa-user-circle"></span> Registro
+	                  <div class="card-header py-4">
+											<h3 class="text-center font-weight-light mt-4">
+												Registro
 											</h3>
+											<div class="text-center">
+												<small>Sistema de Administración</small>
+											</div>
 										</div>
 	                  <div class="card-body">
+											<?php
+											if( session()->get('success') ){
+												echo '<div class="alert alert-success alert-dismissible fade show">'.session()->get('success').'<button type="button" class="btn-close text-danger" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+											}else if( session()->get('failure') ){
+												echo '<div class="alert alert-danger alert-dismissible fade show">'.session()->get('failure').'<button type="button" class="btn-close text-danger" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+											}
+											?>
 	                      <form class="" action="<?= base_url('users/register');?>" method="post">
 	                          <div class="row mb-3">
 	                              <div class="col-md-6">
@@ -27,7 +37,7 @@
 	                              </div>
 	                          </div>
 	                          <div class="form-floating mb-3">
-	                              <input class="form-control" id="input_email" type="email" placeholder="nombre@ejemplo.com" />
+	                              <input class="form-control" id="input_email" type="email" name="email" placeholder="nombre@ejemplo.com" />
 	                              <label for="input_email">Correo electrónico</label>
 	                          </div>
 	                          <div class="row mb-3">
@@ -45,12 +55,10 @@
 	                              </div>
 	                          </div>
 														<?php if(isset($validation)): ?>
-							                <div class="col-12">
-							                  <div class="alert alert-danger" role="alert">
-							                    <?= $validation->listErrors() ?>
-							                  </div>
-							                </div>
-							              <?php endif ?>
+															<div class="col-12 mb-3">
+																<?= $validation->listErrors('custom') ?>
+															</div>
+														<?php endif ?>
 	                          <div class="mt-4 mb-0">
 	                              <div class="d-grid">
 																	<button type="submit" class="btn btn-primary btn-block">

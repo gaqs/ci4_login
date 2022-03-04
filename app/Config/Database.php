@@ -35,7 +35,7 @@ class Database extends Config
         'hostname' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => 'street_sellers',
+        'database' => 'ci4_login',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,

@@ -5,7 +5,15 @@ use CodeIgniter\Model;
 
 class UserModel extends Model{
   protected $table = 'users';
-  protected $allowedFields = ['name', 'lastname', 'email', 'password', 'level', 'updated_at'];
+  protected $primaryKey = 'id';
+
+  protected $useSoftDeletes = true;
+  protected $useTimestamps = true;
+  protected $createdField  = 'created_at';
+  protected $updatedField  = 'updated_at';
+  protected $deletedField  = 'deleted_at';
+
+  protected $allowedFields = ['name', 'lastname', 'email', 'password', 'email_verification_token', 'email_verified_at'];
   protected $beforeInsert = ['beforeInsert'];
   protected $beforeUpdate = ['beforeUpdate'];
 

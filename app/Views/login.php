@@ -7,25 +7,28 @@
 									<div class="card shadow-lg border-0 rounded-lg">
 											<div class="card-header py-4">
 												<h3 class="text-center font-weight-light mt-4">
-													<span class="fas fa-user-circle"></span> Login
+													Login
 												</h3>
 												<div class="text-center">
 													<small>Sistema de Administración</small>
 												</div>
 											</div>
 											<div class="card-body">
-												<?php if( session()->get('success')): ?>
-													<div class="alert alert-success">
-														<?= session()->get('success') ?>
-													</div>
-												<?php endif; ?>
+												<?php
+												if( session()->get('success') ){
+													echo '<div class="alert alert-success alert-dismissible fade show">'.session()->get('success').'<button type="button" class="btn-close text-danger" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+												}else if( session()->get('failure') ){
+													echo '<div class="alert alert-danger alert-dismissible fade show">'.session()->get('failure').'<button type="button" class="btn-close text-danger" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+												}
+												?>
 												<form action="<?= base_url('users/index');?>" method="post">
 														<div class="form-floating mb-3">
 																<input class="form-control" id="input_email" type="email" name="email" value="<?= set_value('email');?>" placeholder="nombre@ejemplo.com" />
 																<label for="input_email">Correo electrónico</label>
 														</div>
-														<div class="form-floating mb-3">
+														<div class="form-floating input-group mb-3">
 																<input class="form-control" id="input_password" name="password" type="password" placeholder="*************" />
+																<button class="btn btn-light rounded-end border px-3" id="toggle_button" type="button"><i id="toggle_icon" class="fa-solid fa-eye-slash"></i></button>
 																<label for="input_password">Contraseña</label>
 														</div>
 														<div class="form-check mb-3">
@@ -34,13 +37,11 @@
 														</div>
 														<?php if(isset($validation)): ?>
 															<div class="col-12 mb-3">
-																<div class="alert alert-danger" role="alert">
-																	<?= $validation->listErrors() ?>
-																</div>
+																<?= $validation->listErrors('custom') ?>
 															</div>
 														<?php endif ?>
 														<div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-																<a class="small" href="#">No recuerdas tu contraseña?</a>
+																<a class="small" href="<?= base_url('users/forgot'); ?>">No recuerdas tu contraseña?</a>
 																<button type="submit" class="btn btn-primary"> <i class="fas fa-sign-in-alt"></i> Ingresar</button>
 														</div>
 												</form>
